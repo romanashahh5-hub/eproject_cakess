@@ -1,0 +1,1027 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collections | Albereto Watches</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #c9a45c;
+      --dark: #10100f;
+      --cream: #f7f5f0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--dark);
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      background: var(--dark);
+      padding: 18px 0;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold) !important;
+      font-size: 29px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .navbar .nav-link {
+      color: #eee !important;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin: 0 10px;
+      transition: .3s;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active {
+      color: var(--gold) !important;
+    }
+
+    .gold-btn {
+      background: var(--gold);
+      color: #111;
+      border: 1px solid var(--gold);
+      padding: 13px 27px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-block;
+      transition: .3s;
+    }
+
+    .gold-btn:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    /* HERO */
+
+    .collection-hero {
+      min-height: 480px;
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url('https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=1800&q=85');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .collection-hero .tag {
+      color: var(--gold);
+      letter-spacing: 5px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .collection-hero h1 {
+      font-size: clamp(45px, 7vw, 75px);
+      margin: 20px 0;
+    }
+
+    .collection-hero h1 span {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .collection-hero p {
+      max-width: 600px;
+      margin: auto;
+      color: #ddd;
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    /* COMMON */
+
+    .section-padding {
+      padding: 85px 0;
+    }
+
+    .section-tag {
+      color: #ad8745;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin: 12px 0;
+    }
+
+    .section-desc {
+      color: #777;
+      max-width: 600px;
+      margin: auto;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* CATEGORY */
+
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      height: 350px;
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .6s;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .category-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.85));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 30px;
+    }
+
+    .category-overlay h3 {
+      font-size: 29px;
+    }
+
+    .category-overlay p {
+      color: #ddd;
+      font-size: 13px;
+      margin-bottom: 0;
+    }
+
+    .category-overlay span {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin-top: 12px;
+    }
+
+    /* PRODUCT CARDS */
+
+    .product-card {
+      height: 100%;
+      background: white;
+      border: none;
+      transition: .3s;
+    }
+
+    .product-image {
+      height: 290px;
+      background: #f3f1ec;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.07);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--gold);
+      color: #111;
+      padding: 6px 12px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      z-index: 1;
+    }
+
+    .product-info {
+      padding: 20px 5px;
+    }
+
+    .product-info h5 {
+      font-size: 21px;
+      margin: 8px 0;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 12px;
+    }
+
+    .price {
+      color: #a27c39;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .product-btn {
+      border: 1px solid #222;
+      padding: 9px 17px;
+      text-decoration: none;
+      color: #111;
+      font-size: 11px;
+      letter-spacing: 1px;
+      display: inline-block;
+      transition: .3s;
+    }
+
+    .product-btn:hover {
+      background: var(--dark);
+      color: white;
+    }
+
+    /* FEATURED COLLECTION */
+
+    .featured {
+      background: var(--dark);
+      color: white;
+    }
+
+    .featured-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .featured-content {
+      padding: 45px;
+    }
+
+    .featured-content p {
+      color: #aaa;
+      line-height: 2;
+      font-size: 14px;
+      margin: 25px 0;
+    }
+
+    /* DIVIDER */
+
+    .gold-line {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px auto;
+    }
+
+    /* PROMOTION */
+
+    .promo {
+      background: var(--cream);
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .promo h2 {
+      font-size: 40px;
+      margin: 15px 0;
+    }
+
+    .promo p {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      padding: 75px 0;
+      background: white;
+    }
+
+    .newsletter .form-control {
+      border-radius: 0;
+      padding: 14px;
+      box-shadow: none;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #10100f;
+      color: white;
+      padding: 65px 0 20px;
+    }
+
+    .footer-brand {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    footer p, footer a {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 2;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    footer h6 {
+      color: white;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      font-size: 19px;
+      margin-right: 15px;
+    }
+
+    .copyright {
+      border-top: 1px solid #333;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media(max-width: 767px) {
+      .section-padding {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .category-card {
+        height: 300px;
+      }
+
+      .product-image {
+        height: 230px;
+      }
+
+      .featured-img {
+        height: 330px;
+      }
+
+      .featured-content {
+        padding: 35px 25px;
+      }
+
+      .promo h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+
+    <a class="navbar-brand" href="index.html">ALBERETO.</a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">HOME</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about_us.html">ABOUT US</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="collection.html">COLLECTION</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="gallery.html">WATCHES</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">CONTACT</a>
+        </li>
+
+      </ul>
+
+      <a href="#watches" class="gold-btn">SHOP NOW</a>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- HERO SECTION -->
+<section class="collection-hero">
+
+  <div class="container">
+
+    <div class="tag">EXPLORE ALBERETO</div>
+
+    <h1>Our <span>Collections.</span></h1>
+
+    <p>
+      Discover the perfect timepiece for every personality.
+      From classic elegance to modern sophistication,
+      find your style with Albereto.
+    </p>
+
+    <a href="#categories" class="gold-btn mt-4">
+      EXPLORE COLLECTION
+      <i class="bi bi-arrow-down ms-2"></i>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+<section class="section-padding" id="categories">
+
+  <div class="container">
+
+    <div class="text-center mb-5">
+
+      <div class="section-tag">FIND YOUR STYLE</div>
+
+      <h2 class="section-title">Shop By Collection</h2>
+
+      <p class="section-desc">
+        Every watch tells a story. Choose the collection
+        that represents your personality.
+      </p>
+
+      <div class="gold-line"></div>
+
+    </div>
+
+    <div class="row g-4">
+
+      <!-- MEN -->
+      <div class="col-md-4">
+
+        <a href="#men" class="category-card">
+
+          <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=85"
+            alt="Men's watches">
+
+          <div class="category-overlay">
+            <h3>Men's Collection</h3>
+            <p>Bold designs. Strong identity.</p>
+            <span>EXPLORE NOW →</span>
+          </div>
+
+        </a>
+
+      </div>
+
+      <!-- WOMEN -->
+      <div class="col-md-4">
+
+        <a href="#women" class="category-card">
+
+          <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=800&q=85"
+            alt="Women's watches">
+
+          <div class="category-overlay">
+            <h3>Women's Collection</h3>
+            <p>Grace in every second.</p>
+            <span>EXPLORE NOW →</span>
+          </div>
+
+        </a>
+
+      </div>
+
+      <!-- CLASSIC -->
+      <div class="col-md-4">
+
+        <a href="#classic" class="category-card">
+
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=85"
+            alt="Classic watches">
+
+          <div class="category-overlay">
+            <h3>Classic Collection</h3>
+            <p>Elegance that never fades.</p>
+            <span>EXPLORE NOW →</span>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURED COLLECTION -->
+<section class="featured">
+
+  <div class="row g-0 align-items-center">
+
+    <div class="col-lg-6">
+
+      <img class="featured-img"
+        src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=1100&q=85"
+        alt="Albereto premium collection">
+
+    </div>
+
+    <div class="col-lg-6">
+
+      <div class="featured-content">
+
+        <div class="section-tag">EXCLUSIVE SELECTION</div>
+
+        <h2 class="section-title">
+          The Signature Collection
+        </h2>
+
+        <p>
+          Designed for those who appreciate the beauty
+          of simplicity and luxury. Our signature collection
+          combines modern aesthetics with timeless style.
+        </p>
+
+        <a href="#classic" class="gold-btn">
+          DISCOVER SIGNATURE
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MEN'S COLLECTION -->
+<section class="section-padding" id="men">
+
+  <div class="container">
+
+    <div class="text-center mb-5">
+
+      <div class="section-tag">FOR HIM</div>
+
+      <h2 class="section-title">Men's Collection</h2>
+
+      <p class="section-desc">
+        Powerful designs for confident personalities.
+      </p>
+
+      <div class="gold-line"></div>
+
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <span class="product-badge">BEST SELLER</span>
+            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=85" alt="Classic Heritage watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Classic Heritage</h5>
+            <p class="price">Rs. 24,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <span class="product-badge">NEW</span>
+            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=700&q=85" alt="Royal Elegance watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Royal Elegance</h5>
+            <p class="price">Rs. 29,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=700&q=85" alt="Urban Legend watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Urban Legend</h5>
+            <p class="price">Rs. 19,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <span class="product-badge">PREMIUM</span>
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=700&q=85" alt="Midnight Gold watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Midnight Gold</h5>
+            <p class="price">Rs. 34,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WOMEN'S COLLECTION -->
+<section class="section-padding" id="women" style="background:#f7f5f0;">
+
+  <div class="container">
+
+    <div class="text-center mb-5">
+
+      <div class="section-tag">FOR HER</div>
+
+      <h2 class="section-title">Women's Collection</h2>
+
+      <p class="section-desc">
+        Sophisticated timepieces for effortless elegance.
+      </p>
+
+      <div class="gold-line"></div>
+
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <span class="product-badge">POPULAR</span>
+            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=700&q=85" alt="Golden Grace watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Golden Grace</h5>
+            <p class="price">Rs. 22,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=700&q=85" alt="Rose Charm watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Rose Charm</h5>
+            <p class="price">Rs. 27,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <span class="product-badge">NEW</span>
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=700&q=85" alt="Elegant Pearl watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Elegant Pearl</h5>
+            <p class="price">Rs. 25,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=85" alt="Royal Bloom watch">
+          </div>
+
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Royal Bloom</h5>
+            <p class="price">Rs. 31,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CLASSIC COLLECTION -->
+<section class="section-padding" id="classic">
+
+  <div class="container">
+
+    <div class="text-center mb-5">
+
+      <div class="section-tag">TIMELESS DESIGN</div>
+
+      <h2 class="section-title">Classic & Luxury</h2>
+
+      <p class="section-desc">
+        A perfect combination of traditional elegance
+        and contemporary design.
+      </p>
+
+      <div class="gold-line"></div>
+
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=85" alt="Heritage Gold watch">
+          </div>
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Heritage Gold</h5>
+            <p class="price">Rs. 35,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=700&q=85" alt="Royal Classic watch">
+          </div>
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Royal Classic</h5>
+            <p class="price">Rs. 32,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=700&q=85" alt="Elite Signature watch">
+          </div>
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Elite Signature</h5>
+            <p class="price">Rs. 39,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=700&q=85" alt="Midnight Classic watch">
+          </div>
+          <div class="product-info">
+            <div class="stars">★★★★★</div>
+            <h5>Midnight Classic</h5>
+            <p class="price">Rs. 37,999</p>
+            <a href="index.html#contact" class="product-btn">VIEW DETAILS</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PROMOTION -->
+<section class="promo">
+
+  <div class="container">
+
+    <div class="section-tag">YOUR STYLE. YOUR TIME.</div>
+
+    <h2>Make Every Second Count.</h2>
+
+    <p>
+      Find your perfect timepiece and let your style speak for itself.
+    </p>
+
+    <a href="index.html" class="gold-btn">
+      BACK TO HOME
+      <i class="bi bi-arrow-right ms-2"></i>
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+
+  <div class="container text-center">
+
+    <div class="section-tag">STAY CONNECTED</div>
+
+    <h2 class="section-title">Join The Albereto Family</h2>
+
+    <p class="section-desc mb-4">
+      Subscribe for new collection updates, latest arrivals
+      and exclusive offers.
+    </p>
+
+    <form class="row justify-content-center g-2"
+      onsubmit="event.preventDefault(); alert('Thank you for joining Albereto!');">
+
+      <div class="col-md-5">
+        <input type="email" class="form-control"
+          placeholder="Enter your email address" required>
+      </div>
+
+      <div class="col-md-auto">
+        <button type="submit" class="gold-btn w-100">
+          SUBSCRIBE
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container">
+
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+
+        <div class="footer-brand">ALBERETO.</div>
+
+        <p class="mt-3">
+          Redefining modern elegance, one second at a time.
+          Discover the beauty of timeless watchmaking.
+        </p>
+
+        <div class="social-links mt-3">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-pinterest"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+
+        <h6>QUICK LINKS</h6>
+
+        <p><a href="index.html">Home</a></p>
+        <p><a href="about.html">About Us</a></p>
+        <p><a href="collection.html">Collection</a></p>
+        <p><a href="#watches">Watches</a></p>
+
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+
+        <h6>HELP & SUPPORT</h6>
+
+        <p><a href="index.html#contact">Contact Us</a></p>
+        <p><a href="#">Shipping Policy</a></p>
+        <p><a href="#">Return Policy</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+
+        <h6>CONTACT US</h6>
+
+        <p><i class="bi bi-envelope me-2"></i> info@albereto.com</p>
+        <p><i class="bi bi-telephone me-2"></i> +92 300 1234567</p>
+        <p><i class="bi bi-geo-alt me-2"></i> Pakistan</p>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Albereto Watches. All Rights Reserved.
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
